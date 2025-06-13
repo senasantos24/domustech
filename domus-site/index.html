@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOMUS</title>
+  <link rel="icon" href="img/domuslogo1.png" type="image/png">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0f0f0f;
+      color: white;
+    }
+    header {
+      background-color: #121212;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      letter-spacing: 4px;
+    }
+    nav a {
+      margin: 0 10px;
+      color: white;
+      text-decoration: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      transition: 0.3s;
+    }
+    nav a:hover,
+    nav a.active {
+      background: linear-gradient(90deg, #fb37ff, #3f78ff);
+      color: white;
+    }
+   /* Estilos para o novo banner horizontal */
+.hero-banner {
+    background: linear-gradient(to right, #4a148c, #303030); /* Degradê roxo para cinza escuro */
+    color: white;
+    padding: 30px 50px; /* Ajuste o padding conforme desejar */
+    display: flex;
+    justify-content: center; /* Alinha o conteúdo à esquerda */
+    align-items: center;
+    width: 100%; /* Garante que ocupe toda a largura */
+    min-height: 150px; /* Altura mínima para o banner */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para destaque */
+}
+
+.banner-content {
+    display: flex;
+    align-items: center;
+    gap: 30px; /* Espaço entre a foto e o texto */
+}
+
+.profile-photo-container {
+    width: 90px; /* Tamanho da sua foto */
+    height: 90px;
+    border-radius: 50%; /* Torna a foto redonda */
+    overflow: hidden; /* Garante que a foto respeite o border-radius */
+    border: 3px solid white; /* Borda branca na foto */
+    display: flex; /* Para centralizar a imagem dentro do contêiner */
+    justify-content: center;
+    align-items: center;
+
+    /* SE VOCÊ PREFERIR USAR background-image PARA SUA FOTO */
+    /* Remova a tag <img> no HTML e descomente as linhas abaixo */
+    /* background-image: url('caminho/para/sua-foto.jpg'); */
+    /* background-size: cover; */
+    /* background-position: center; */
+    /* background-repeat: no-repeat; */
+}
+
+.profile-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Garante que a imagem cubra o contêiner sem distorcer */
+}
+
+.domustech-info h1 {
+    font-size: 2.5rem; /* Tamanho do "DomusTech" */
+    margin: 0; /* Remove margem padrão */
+    letter-spacing: 2px;
+}
+
+.domustech-info p {
+    font-size: 1.1rem; /* Tamanho da tagline */
+    margin-top: 5px;
+    color: #ccc;
+    opacity: 0.9;
+}
+
+/* Ajuste para o menu de navegação no header */
+header {
+    background-color: transparent; /* Torna o header transparente para o banner aparecer abaixo */
+    padding: 10px 40px; /* Ajuste o padding se necessário */
+    position: relative; /* Remove sticky ou adjust top se o banner não for scrollar com a página */
+    z-index: 1001; /* Garante que o menu fique acima do banner */
+    justify-content: flex-end; /* Move o menu para a direita */
+}
+
+.logo {
+    display: none; /* Esconde o logo "DOMUS" no header se ele for parte do banner */
+}
+
+/* Você pode precisar ajustar o padding das seções para não sobrepor o novo banner */
+.section {
+    padding-top: 80px; /* Adiciona um padding extra para as seções abaixo do banner */
+}
+
+/* Media queries para responsividade, ajuste conforme necessário */
+@media (max-width: 768px) {
+    .hero-banner {
+        flex-direction: column; /* Empilha a foto e o texto em telas menores */
+        padding: 20px;
+        text-align: center;
+    }
+
+    .banner-content {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .profile-photo-container {
+        width: 70px;
+        height: 70px;
+    }
+
+    .domustech-info h1 {
+        font-size: 2rem;
+    }
+
+    .domustech-info p {
+        font-size: 1rem;
+    }
+
+    header {
+        justify-content: center; /* Centraliza o menu em telas menores */
+    }
+
+    nav {
+        display: flex;
+        flex-wrap: wrap; /* Permite que os links quebrem linha */
+        justify-content: center;
+    }
+
+    nav a {
+        margin: 5px;
+        padding: 8px 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-banner {
+        padding: 15px;
+    }
+
+    .domustech-info h1 {
+        font-size: 1.8rem;
+    }
+
+    .domustech-info p {
+        font-size: 0.9rem;
+    }
+
+    nav a {
+        font-size: 0.9em;
+    }
+}
+    
+    .section {
+  padding: 60px 40px;
+  max-width: 100%;
+  margin: auto;
+    }
+    .section h2 {
+      margin-bottom: 20px;
+      font-size: 2rem;
+      border-left: 5px solid #fb37ff;
+      padding-left: 10px;
+    }
+    .grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+.grid-portfolio {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+    .card {
+  background: #1e1e1e;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  height: 100%;
+  transition: transform 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+    .card:hover {
+      transform: scale(1.05);
+    }
+    footer {
+      background: #121212;
+      color: #ccc;
+      text-align: center;
+      padding: 30px 20px;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">DOMUS</div>
+    <nav>
+      <a href="#sobre">Sobre</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#portfolio">Portfólio</a>
+      <a href="#orcamento">Orçamento</a>
+      <a href="#trabalhe">Trabalhe Conosco</a>
+      <a href="#contato">Contato</a>
+    </nav>
+  </header>
+
+  <section class="hero-banner">
+    <div class="banner-content">
+        <div class="profile-photo-container">
+            <img src="img/domuslogo1.png" alt="Domus Logo" class="profile-photo">
+            </div>
+        <div class="domustech-info">
+            <h1>DomusTech</h1>
+            <p>Alternativa digital e inteligente, transformando casas em lares.</p>
+        </div>
+    </div>
+</section>
+
+  <section id="sobre" class="section">
+    <h2>Sobre Nós</h2>
+    <p>Somos uma empresa de automação residencial com foco na personalização total da experiência do usuário. Nossos sistemas são feitos sob medida, com ênfase em economia de energia, acessibilidade e tecnologia de ponta.</p>
+  </section>
+
+  <section id="servicos" class="section">
+    <h2>Serviços</h2>
+    <div class="grid">
+      <div class="card">
+        <img src="img/ilum-domus.png" alt="Iluminação Inteligente" style="width: 100%; border-radius: 8px; margin-bottom: 15px;">
+        <h3>Iluminação Inteligente</h3>
+        <p>Controle por app ou voz, com cenas automáticas e economia.</p>
+      </div>
+      <div class="card">
+        <img src="img/clim-domus.png" alt="Segurança" style="width: 100%; border-radius: 8px; margin-bottom: 15px;">
+        <h3>Climatização</h3>
+        <p>Ambientes sempre na temperatura ideal, com sensores inteligentes.</p>
+      </div>
+      <div class="card">
+        <img src="img/segu-domus.jpg" alt="Segurança" style="width: 100%; border-radius: 8px; margin-bottom: 15px;">
+        <h3>Segurança</h3>
+        <p>Câmeras, fechaduras digitais e sensores controlados remotamente.</p>
+      </div>
+      <div class="card">
+        <img src="img/ener-domus.jpg" alt="Segurança" style="width: 100%; border-radius: 8px; margin-bottom: 15px;">
+        <h3>Energia Sustentável</h3>
+        <p>Soluções com painéis solares e monitoramento em tempo real.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="portfolio" class="section">
+  <h2>Portfólio</h2>
+  <div class="grid-portfolio">
+    <div class="card">
+      <h3>Casa Inteligente</h3>
+      <p>Integração total com assistentes inteligentes por voz, automações de iluminação e segurança.</p>
+      <img src="img/int-domus.png" alt="Segurança" style="width: 100%; border-radius: 8px; margin-bottom: 15px;">
+    </div>
+    <div class="card">
+      <h3>Apto Contemporâneo</h3>
+      <p>Climatização automática, cortinas motorizadas e som ambiente.</p>
+      <img src="img/ap-domus.png" alt="Segurança" style="width: 100%; border-radius: 8px; margin-bottom: 15px;">
+    </div>
+  </div>
+</section>
+
+ <section id="orcamento" class="section">
+  <h2>Faça seu Orçamento</h2>
+  <p>Preencha o formulário abaixo para receber uma proposta personalizada:</p>
+  <form style="margin-top: 20px; display: flex; flex-direction: column; gap: 10px;">
+    <input type="text" placeholder="Seu nome" required style="padding: 10px; border-radius: 6px; border: none;">
+    <input type="email" placeholder="Seu e-mail" required style="padding: 10px; border-radius: 6px; border: none;">
+    <input type="tel" placeholder="Telefone para contato" style="padding: 10px; border-radius: 6px; border: none;">
+    <textarea placeholder="Descreva seu projeto" rows="4" style="padding: 10px; border-radius: 6px; border: none;"></textarea>
+    <button type="submit" style="padding: 12px; background: linear-gradient(90deg, #fb37ff, #3f78ff); color: white; border: none; border-radius: 6px; cursor: pointer;">Enviar</button>
+  </form>
+</section>
+
+  <section id="trabalhe" class="section">
+    <h2>Trabalhe Conosco</h2>
+    <p>Buscamos profissionais apaixonados por inovação. Envie seu currículo e faça parte do nosso time.</p>
+  </section>
+
+  <section id="contato" class="section">
+    <h2>Contato</h2>
+    <p>Email: contato@domus.com<br>Telefone: (11) 99999-9999<br>SAC: 0800 4444 4444 <br>Endereço: Rua Inovação, 100, São Paulo - SP</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 DOMUS Todos os direitos reservados. | Criado por Maria Clara Sena Santos, Felipe Allan Garcia — Profº: Israel Ribeiro </p>
+  <div style="margin-top: 10px;">
+  <a href="https://www.instagram.com/atdomus.tech" target="_blank" style="color: #ccc; text-decoration: none;">
+    <img src="img/Instagram_logo.png" alt="Instagram" style="width: 20px; vertical-align: middle; margin-right: 6px;">
+    @atdomus.tech
+  </a>
+</div>
+
+  </footer>
+
+  <script>
+    // Destaque o link ativo conforme a rolagem
+    const links = document.querySelectorAll('nav a');
+    const sections = document.querySelectorAll('section');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 80;
+        if (pageYOffset >= sectionTop) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      links.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+          link.classList.add('active');
+        }
+      });
+    });
+
+    // Scroll suave ao clicar
+    links.forEach(link => {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        target.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
+</body>
+</html>
